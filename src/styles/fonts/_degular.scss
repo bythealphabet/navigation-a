@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "Degular";
+  src: url("../assets/fonts/Degular-Bold.woff") format("woff"),
+    url("../assets/fonts/Degular-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Degular";
+  src: url("../assets/fonts/Degular-Medium.woff") format("woff"),
+    url("../assets/fonts/Degular-Medium.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Degular";
+  src: url("../assets/fonts/Degular-Regular.woff") format("woff"),
+    url("../assets/fonts/Degular-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+}

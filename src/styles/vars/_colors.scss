@@ -1,0 +1,29 @@
+$_palette: (
+  primary: #eae0ce,
+  secondary: #008065,
+  secondary-shadow: #025847,
+  secondary-light: #008065,
+  white: #ffffff,
+  off-white: #f9f6f0,
+  black: #142017,
+  black-shadow: #665e50,
+  transparent: transparent,
+  text-primary: #004438,
+  focus: #00b2ff,
+  text-secondary: #008065,
+  error: #ff3100,
+  border-focus: #00b2ff,
+  pagination-dots: #767676,
+  background-cirle: #cb998d,
+);
+
+@function palette($color) {
+  @if map-has-key($_palette, $color) {
+    @return map-get($_palette, $color);
+  }
+
+  @warn 'Unfortunately, no value could be retrieved for `#{$color}`. '
+    + 'Please make sure it is defined in `$_palette` map.';
+
+  @return #000;
+}
