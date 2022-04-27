@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.item{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    padding: 1rem 1.8rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.arrow-one{
+    transform: rotate(180deg);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    
+}
+
+.arrow-two{
+    align-self: flex-end;
+    margin-bottom: 2rem;
+    transition: opacity 0.3s;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+span{
+    text-decoration: none;
+    color: black;
+    font-size: 4rem;
+    display: flex;
+    flex-flow: column nowrap;
+    transform: translate(0);
+    transition: transform 0.5s;
+}
+
+
+span::before{
+    content: attr(data-label);
+    margin-right: 1rem;
+    font-size: 8rem;
+    transform: translateX(-120%);
+    transition: transform 0.5s;
+}
+
+.active{
+    transform: translateY(-50%);
+}
+
+.active .arrow-one{
+    
+    opacity: 1;
+}
+
+.active .arrow-two{
+    /* opacity: 0; */
+    transform: translateX(4rem);
+}
+
+.active span{
+    transform: translateX(-100%);
+}
+
+.active span::before{
+    transform: translateX(100%);
+}

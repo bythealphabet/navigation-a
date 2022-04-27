@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <div class="box">
+    <ul>
+      <li class="item" onclick="putstyles()" showsubitem>
+        <svg class="arrow-one" width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 7L12.17 7L8.59 10.59L10 12L16 6L10 0L8.59 1.41L12.17 5L1.74846e-07 5L0 7Z" fill="#2E3A59"/>
+        </svg>
+        <span data-label="Product">Product</span>
+        <svg class="arrow-two" width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 7L12.17 7L8.59 10.59L10 12L16 6L10 0L8.59 1.41L12.17 5L1.74846e-07 5L0 7Z" fill="#2E3A59"/>
+        </svg>
+      </li>
+    </ul>
+  </div>
+
+
+  <script>
+    var subitem = document.querySelectorAll('.item');
+
+
+
+    function putstyles() {
+      for (var i = 0; i < subitem.length; i++) {
+        subitem[i].classList.toggle('active');
+      }
+    }
+
+
+  
+  </script>
+</body>
+
+</html>

@@ -1,21 +1,21 @@
 <script>
 export default {
-  methods: {
-    toggleNavigation() {
-      this.isNavigationOpen = !this.isNavigationOpen;
+  props: {
+    active: {
+      type: Boolean,
+      default: false,
     },
-  },
-  data() {
-    return {
-      isNavigationOpen: false,
-    };
+    toggleHandler: {
+      type: Function,
+      default: null,
+    },
   },
 };
 </script>
 
 <template>
-  <div class="hamburger" @click="toggleNavigation()">
-    <div class="nav-icon" :class="{ open: isNavigationOpen }">
+  <div class="hamburger" @click="toggleHandler()">
+    <div class="nav-icon" :class="{ open: active }">
       <span></span>
       <span></span>
       <span></span>

@@ -5,11 +5,17 @@ export default {
   components: {
     Nav,
   },
+  props: {
+    active: {
+      type: Boolean,
+      default: false,
+    },
+  },
 };
 </script>
 
 <template>
-  <div class="menu">
+  <div class="menu" :class="{ open: active }">
     <Nav />
   </div>
 </template>
@@ -19,16 +25,19 @@ export default {
 .menu {
   background: lightblue;
   position: absolute;
-  inset: 0;
+  inset: 5.5rem 0 0 0;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  transform: translateX(100%);
+  transition: transform 0.35s ease-in-out;
 
   @include md {
     position: initial;
     background: transparent;
+    transform: translateX(0);
   }
+}
+
+.open {
+  transform: translateX(0);
 }
 </style>

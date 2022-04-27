@@ -44,7 +44,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  background: lightcoral;
+  background-color: palette("primary");
 }
 
 /* A elements that don't have a class get default styles */

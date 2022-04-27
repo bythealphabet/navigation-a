@@ -47,22 +47,31 @@ export default {
 
 <template>
   <nav class="navigation">
-    <ul
-      class="navigation__items"
-      role="list"
-      v-for="route in routes"
-      :key="route.path"
-    >
-      <li v-if="route.subroutes.length === 0" class="navigation__item">
-        <a href="">{{ route.name }}</a>
-      </li>
-      <li
-        v-else
-        class="navigation__item"
-        @mouseover="(subMenuItems = route.subroutes), (isNavigationOpen = true)"
-      >
-        <a href="">{{ route.name }}</a>
-      </li>
+    <ul class="navigation__items" role="list">
+      <template v-for="route in routes" :key="route.path">
+        <li v-if="route.subroutes.length === 0" class="navigation__item">
+          <a href="">{{ route.name }}</a>
+        </li>
+        <li
+          v-else
+          class="navigation__item dropdown"
+          @mouseover="
+            (subMenuItems = route.subroutes), (isNavigationOpen = true)
+          "
+          @mouseleave="isNavigationOpen = false"
+        >
+          <a href="">{{ route.name }}</a>
+          <div class="dropdown-menu">
+            <ul class="dropdown-menu__items" role="list">
+              <template v-for="subroute in subMenuItems" :key="subroute.path">
+                <li class="dropdown-menu__item">
+                  <a href="">{{ subroute.name }}</a>
+                </li>
+              </template>
+            </ul>
+          </div>
+        </li>
+      </template>
     </ul>
   </nav>
 </template>
@@ -70,24 +79,56 @@ export default {
 <style lang="scss" scoped>
 @import "../styles/resources.scss";
 .navigation {
-  display: flex;
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
+  height: 100%;
   transition: background-color 0.2s ease-in-out;
 
   &__items {
+    display: flex;
+    flex-flow: column nowrap;
     font-size: 1.6rem;
     flex: 1;
-    display: none;
 
     @include md {
       display: flex;
+      flex-flow: row nowrap;
     }
 
     li {
       color: palette(text-primary);
       margin-right: 2.4rem;
+
+      a {
+        color: palette(text-primary);
+      }
+    }
+
+    .dropdown-menu {
+      position: relative;
+
+      &__items {
+        position: absolute;
+        left: 0;
+        top: calc(100% + 1.6rem);
+        width: 20rem;
+        background-color: #fff;
+        box-shadow: 0 0.8rem 1.6rem 0 rgba(0, 0, 0, 0.1);
+        z-index: 1;
+
+        @include md {
+          display: flex;
+          flex-flow: column nowrap;
+        }
+
+        li {
+          color: palette(text-primary);
+          margin-bottom: 1.6rem;
+
+          a {
+            color: palette(text-primary);
+          }
+        }
+      }
     }
   }
 
