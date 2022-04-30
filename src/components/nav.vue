@@ -66,6 +66,16 @@ export default {
               <template v-for="subroute in subMenuItems" :key="subroute.path">
                 <li class="dropdown-menu__item">
                   <a href="">{{ subroute.name }}</a>
+                  <ul>
+                    <template
+                      v-for="subroute in subMenuItems"
+                      :key="subroute.path"
+                    >
+                      <li class="dropdown-menu__item">
+                        <a href="">{{ subroute.name }}</a>
+                      </li>
+                    </template>
+                  </ul>
                 </li>
               </template>
             </ul>
