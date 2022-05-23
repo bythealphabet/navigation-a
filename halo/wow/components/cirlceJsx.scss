@@ -1,0 +1,22 @@
+div {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.btn-halo {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  fill: white;
+  stroke: green;
+  stroke-width: 0.2rem;
+  stroke-linecap: round;
+  /* Makes sure the animation starts at the top of the circle */
+  transform: rotate(90deg);
+  transform-origin: center;
+
+  /* One second aligns with the speed of the countdown timer */
+  transition: 1s linear all;
+  transform: scaleX(-1);
+
+  /* Allows the ring to change color when the color value updates */
+}
